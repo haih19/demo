@@ -1,4 +1,7 @@
 import Axios, { InternalAxiosRequestConfig } from "axios";
+import { setupCache } from "axios-cache-interceptor";
+import { IApi } from "./interfaces";
+import weatherService from "./services/weather";
 
 const baseUrl = import.meta.env.VITE_SERVICE_API;
 
@@ -20,3 +23,9 @@ axiosInstance.interceptors.response.use(
   (res) => res.data,
   (error) => error
 );
+
+const cacheInstanceApi = setupCache(axiosInstance);
+
+export const apiService: IApi = {
+  weatherService: weatherService(cacheInstanceApi),
+};
