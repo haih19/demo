@@ -1,3 +1,7 @@
+import { SearchCityWeatherParams, WeatherResponse } from "@/http/types/weather";
+
 export type IWeatherServices = {
-  searchCityWeather: (params: unknown) => Promise<unknown>;
+  searchCityWeather: (
+    params: SearchCityWeatherParams
+  ) => Promise<WeatherResponse>;
 };

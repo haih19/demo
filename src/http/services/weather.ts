@@ -1,9 +1,10 @@
 import { AxiosCacheInstance } from "axios-cache-interceptor";
 import { response } from "@/http/response";
-import { WEATHER_ENDPOINT } from "../endpoints/weather";
+import { CURRENT_WEATHER } from "@/http/endpoints/weather";
+import { SearchCityWeatherParams } from "@/http/types/weather";
 
 export default (axiosInstance: AxiosCacheInstance) => ({
-  searchCityWeather(params: unknown) {
-    return response(axiosInstance.get(WEATHER_ENDPOINT, { params }));
+  searchCityWeather(params: SearchCityWeatherParams) {
+    return response(axiosInstance.get(CURRENT_WEATHER, { params }));
   },
 });

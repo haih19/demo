@@ -1,7 +1,11 @@
-export const response = async (response: Promise<unknown>) => {
+import { responseError, responseSuccess } from "@/utils/http";
+import { AxiosError, AxiosResponse } from "axios";
+import { IApiResult } from "./types";
+
+export const response = async (response: Promise<AxiosResponse>) => {
   try {
-    return await response;
+    return responseSuccess(await response);
   } catch (error) {
-    return error;
+    return responseError(error as AxiosError<IApiResult<undefined>>);
   }
 };
