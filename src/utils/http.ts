@@ -32,7 +32,6 @@ export const responseSuccess = <T = any>(
 
 export const responseError = <T>(error: AxiosError<IApiResult<T>>) => {
   const data = error.response?.data;
-  console.log("response Error>>>", data);
   return {
     content: data?.content,
     status: data?.status,

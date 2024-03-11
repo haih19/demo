@@ -25,7 +25,7 @@ axiosInstance.interceptors.request.use(
 );
 
 axiosInstance.interceptors.response.use(
-  (res) => res.data,
+  (res) => res,
   (error: AxiosError<IApiResult<undefined>>) => {
     const { showNotification } = useNotification();
     if (error?.response?.data?.message) {
