@@ -47,7 +47,10 @@ const MainLayout = ({children}: LayoutProps) => {
     navigate(appRoutes.home);
   };
   return (
-    <Layout>
+    <Layout
+      style={{
+        height: "100dvh",
+      }}>
       <Header
         style={{
           display: "flex",
@@ -72,20 +75,29 @@ const MainLayout = ({children}: LayoutProps) => {
           </Dropdown>
         </div>
       </Header>
-      <Content style={{padding: "0 48px"}}>
+      <Content style={{padding: "0 48px", height: "100%"}}>
         <Layout
           style={{
             padding: "24px 0",
             background: colorBgContainer,
             borderRadius: borderRadiusLG,
+            height: "100%",
+            overflowX: "hidden",
           }}>
-          <Content style={{padding: "0 24px", minHeight: 280}}>
+          <Content
+            style={{
+              padding: "0 24px",
+              minHeight: 280,
+              maxWidth: "90%",
+              width: 960,
+              margin: "auto",
+            }}>
             {children}
           </Content>
         </Layout>
       </Content>
       <Footer style={{textAlign: "center"}}>
-        Ant Design ©{new Date().getFullYear()} Created by Ant UED
+        Weather ©{new Date().getFullYear()} Created by Haih
       </Footer>
     </Layout>
   );
