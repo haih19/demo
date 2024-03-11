@@ -1,4 +1,5 @@
 import {NoData} from "@/components/no-data";
+import {DetailWeatherSkeleton} from "@/components/weather/details/skeleton";
 import {WeatherSkeleton} from "@/components/weather/skeleton";
 import {apiService} from "@/http/request";
 import {Form, Input} from "antd";
@@ -40,9 +41,11 @@ const HomePage = () => {
       </Form>
 
       <div>
-        {/* <NoData /> */}
+        <NoData />
 
-        <WeatherSkeleton />
+        {/* <DetailWeatherSkeleton />
+
+        <WeatherSkeleton /> */}
       </div>
     </div>
   );
