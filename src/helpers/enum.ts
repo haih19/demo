@@ -7,3 +7,7 @@ export enum Units {
 export enum HeaderItem {
   unitPreference = "unit-preference",
 }
+
+export enum KeyboardCode {
+  enter = "Enter",
+}

@@ -1,9 +1,9 @@
-import {WeatherSkeletonItem} from "./skeleton-item";
+import { WeatherSkeletonItem } from "./skeleton-item";
 
 export const WeatherSkeleton = () => {
   return (
     <div className="flex gap-1">
-      {[1, 2, 3, 4, 5, 6].map((item) => (
+      {[1, 2, 3, 4, 5, 6, 7, 8].map((item) => (
         <WeatherSkeletonItem key={item} />
       ))}
     </div>

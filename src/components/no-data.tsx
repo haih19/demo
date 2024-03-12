@@ -8,7 +8,7 @@ export const NoData = () => {
           className="aspect-square"
         />
       </div>
-      <div className="text-lg font-medium text-dark">
+      <div className="text-lg font-medium text-dark text-center">
         We could not find weather information for the location above.
       </div>
     </div>

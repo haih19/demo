@@ -1,16 +1,16 @@
-import {appRoutes} from "@/routes/path-constant";
-import {LayoutProps} from "@/types";
-import {Layout, theme, Dropdown} from "antd";
-import {useNavigate} from "react-router-dom";
-import {MenuOutlined} from "@ant-design/icons";
-import type {MenuProps} from "antd";
-import {Units} from "@/helpers/enum";
-import {storage} from "@/utils/storage";
-import {UNIT_PREFERENCE_KEY} from "@/helpers/constant";
+import { appRoutes } from "@/routes/path-constant";
+import { LayoutProps } from "@/types";
+import { Layout, theme, Dropdown } from "antd";
+import { useNavigate } from "react-router-dom";
+import { MenuOutlined } from "@ant-design/icons";
+import type { MenuProps } from "antd";
+import { Units } from "@/helpers/enum";
+import { storage } from "@/utils/storage";
+import { UNIT_PREFERENCE_KEY } from "@/helpers/constant";
 
-const {Header, Content, Footer} = Layout;
+const { Header, Content, Footer } = Layout;
 
-const onClick: MenuProps["onClick"] = ({key}) => {
+const onClick: MenuProps["onClick"] = ({ key }) => {
   storage.set(UNIT_PREFERENCE_KEY, key);
   window.location.reload();
 };
@@ -36,9 +36,9 @@ const items: MenuProps["items"] = [
   },
 ];
 
-const MainLayout = ({children}: LayoutProps) => {
+const MainLayout = ({ children }: LayoutProps) => {
   const {
-    token: {colorBgContainer, borderRadiusLG},
+    token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
 
   const navigate = useNavigate();
@@ -70,12 +70,12 @@ const MainLayout = ({children}: LayoutProps) => {
           <div className="text-white font-medium text-lg">WebProvise</div>
         </div>
         <div className="cursor-pointer">
-          <Dropdown menu={{items, onClick}}>
+          <Dropdown menu={{ items, onClick }}>
             <MenuOutlined className="text-white text-lg font-medium" />
           </Dropdown>
         </div>
       </Header>
-      <Content style={{padding: "0 48px", height: "100%"}}>
+      <Content style={{ padding: "0 48px", height: "100%" }}>
         <Layout
           style={{
             padding: "24px 0",
@@ -87,16 +87,15 @@ const MainLayout = ({children}: LayoutProps) => {
           <Content
             style={{
               padding: "0 24px",
-              minHeight: 280,
               maxWidth: "90%",
-              width: 960,
+              width: 1200,
               margin: "auto",
             }}>
             {children}
           </Content>
         </Layout>
       </Content>
-      <Footer style={{textAlign: "center"}}>
+      <Footer style={{ textAlign: "center" }}>
         Weather ©{new Date().getFullYear()} Created by Haih
       </Footer>
     </Layout>
