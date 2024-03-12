@@ -62,7 +62,7 @@ const MainLayout = ({ children }: LayoutProps) => {
           onClick={onRedirectToHome}>
           <div className="w-[24px] h-[24px]">
             <img
-              src="src/assets/image/sun.png"
+              src="/assets/sun.png"
               className="aspect-square"
               alt="Logo"
             />
