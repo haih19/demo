@@ -3,7 +3,7 @@ export const NoData = () => {
     <div className="flex justify-center flex-col items-center">
       <div className="w-[256px]">
         <img
-          src="src/assets/image/cloud.png"
+          src="/assets/cloud.png"
           alt="No Data"
           className="aspect-square"
         />
