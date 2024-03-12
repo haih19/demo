@@ -21,13 +21,19 @@ axiosInstance.interceptors.request.use(
   },
   (error) => {
     return requestInterceptorsError(error);
-  }
+  },
 );
 
 axiosInstance.interceptors.response.use(
-  (res) => res.data,
+  (res) => res,
   (error: AxiosError<IApiResult<undefined>>) => {
     const { showNotification } = useNotification();
+
+    showNotification({
+      message: error?.message,
+      type: "error",
+    });
+
     if (error?.response?.data?.message) {
       showNotification({
         message: error?.response?.data?.message,
@@ -35,7 +41,7 @@ axiosInstance.interceptors.response.use(
       });
     }
     return error;
-  }
+  },
 );
 
 const cacheInstanceApi = setupCache(axiosInstance);

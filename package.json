@@ -11,12 +11,15 @@
   },
   "dependencies": {
     "@ant-design/icons": "^5.3.1",
+    "@tanstack/react-query": "^5.24.1",
     "antd": "^5.14.2",
     "axios": "^1.6.7",
+    "axios-cache-interceptor": "^1.2.0",
+    "dayjs": "^1.11.10",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.22.1",
-    "axios-cache-interceptor": "^1.2.0"
+    "swiper": "^11.0.7"
   },
   "devDependencies": {
     "@types/node": "^20.2.5",
@@ -25,6 +28,7 @@
     "@typescript-eslint/eslint-plugin": "^7.0.2",
     "@typescript-eslint/parser": "^7.0.2",
     "@vitejs/plugin-react-swc": "^3.5.0",
+    "autoprefixer": "^10.4.18",
     "eslint": "^8.56.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.5",
@@ -32,7 +36,6 @@
     "sass": "^1.64.1",
     "tailwindcss": "^3.4.1",
     "typescript": "^5.2.2",
-    "vite": "^5.1.4",
-    "autoprefixer": "^10.4.18"
+    "vite": "^5.1.4"
   }
 }

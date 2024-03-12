@@ -7,3 +7,10 @@ export type IRoute = {
   component: React.LazyExoticComponent<() => JSX.Element>;
   layout: React.LazyExoticComponent<({ children }: LayoutProps) => JSX.Element>;
 };
+
+export type UnitItem = {
+  temp: string;
+  pressure: string;
+  humidity: string;
+  speed: string;
+};
