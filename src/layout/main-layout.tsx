@@ -75,7 +75,9 @@ const MainLayout = ({ children }: LayoutProps) => {
           </Dropdown>
         </div>
       </Header>
-      <Content style={{ padding: "0 48px", height: "100%" }}>
+      <Content
+        style={{ height: "100%" }}
+        className=" md:px-[32px] xl:px-[48px]">
         <Layout
           style={{
             padding: "24px 0",

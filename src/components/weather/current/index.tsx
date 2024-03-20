@@ -43,7 +43,9 @@ const CurrentWeather = ({ cityName, country, current }: Props) => {
       <Row
         className="w-full mt-5"
         gutter={24}>
-        <Col span={12}>
+        <Col
+          span={24}
+          xl={{ span: 12 }}>
           <div className="flex justify-start ">
             <div className=" flex items-center">
               <div>
@@ -68,7 +70,8 @@ const CurrentWeather = ({ cityName, country, current }: Props) => {
           </div>
         </Col>
         <Col
-          span={12}
+          span={24}
+          xl={{ span: 12 }}
           className="flex items-center">
           <div className="text-base">
             <div>

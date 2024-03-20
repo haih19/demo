@@ -24,13 +24,6 @@ const imperialUnits: UnitItem = {
   speed: "miles/hour",
 };
 
-const emptyUnits: UnitItem = {
-  temp: "-",
-  pressure: "-",
-  humidity: "-",
-  speed: "-",
-};
-
 export const generateUnits = (): UnitItem => {
   const unitType = storage.get(UNIT_PREFERENCE_KEY);
 
@@ -40,5 +33,5 @@ export const generateUnits = (): UnitItem => {
     [Units.imperial]: imperialUnits,
   };
 
-  return map[unitType] ?? emptyUnits;
+  return map[unitType] ?? standardUnits;
 };
