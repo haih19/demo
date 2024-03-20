@@ -18,6 +18,12 @@ const breakpoints: SwiperOptions["breakpoints"] = {
   640: {
     spaceBetween: 16,
   },
+  320: {
+    spaceBetween: 16,
+  },
+  160: {
+    spaceBetween: 8,
+  },
 };
 
 const Weekdays = ({ weekdays }: Props) => {
