@@ -1,11 +1,13 @@
+import { NumberInput } from "@/components/input";
 import { NoData } from "@/components/no-data";
+import TagsSelect from "@/components/render-tag";
 import CurrentWeather from "@/components/weather/current";
 import { WeatherSkeleton } from "@/components/weather/skeleton";
 import Weekdays from "@/components/weather/weekdays";
 import { useGeoCoordinatesQuery } from "@/http/query/geo-coordinates";
 import { useWeatherQuery } from "@/http/query/weather";
 import { Form, Input } from "antd";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const HomePage = () => {
   const [form] = Form.useForm();
@@ -42,6 +44,12 @@ const HomePage = () => {
     }
   };
 
+  const [test, setTest] = useState<number | null>(null);
+
+  useEffect(() => {
+    console.log(typeof test, ">>>>", test);
+  }, [test]);
+
   return (
     <div className="home-page-wrap overflow-x-hidden h-full">
       <Form
@@ -60,6 +68,17 @@ const HomePage = () => {
           />
         </Form.Item>
       </Form>
+
+      <div>
+        <NumberInput
+          value={test}
+          onChange={(e) => setTest(e)}
+        />
+      </div>
+
+      {/* <div>
+        <TagsSelect />
+      </div> */}
 
       <div>
         {loadingSearchCity || loadingWeather ? (

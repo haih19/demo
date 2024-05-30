@@ -10,7 +10,7 @@ export default defineConfig(({ mode }) => {
     server: {
       open: true,
       cors: true,
-      port: +envFull.VITE_PORT || 3000,
+      port: +envFull.VITE_PORT || 5173,
     },
     resolve: {
       alias: {
