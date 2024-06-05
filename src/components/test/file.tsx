@@ -41,7 +41,7 @@ export default function TestInput({
   ...rest
 }: Props) {
   const [value, setValue] = useState<number | string | undefined | null>(
-    rest?.value ? currency(rest.value) : undefined,
+    currency(rest.value),
   );
 
   const parseValue = (value?: string): number => {
@@ -50,22 +50,19 @@ export default function TestInput({
 
   const handleBlur: FocusEventHandler<HTMLInputElement> = (event) => {
     onBlur?.(event);
-    // Step1: get Target
-    const target = event.target.value;
-    console.log("Step1: get target>>>>", target);
+    // const target = event.target.value;
 
-    // step2: convert value
-    const convert = parseValue(target);
-    console.log("Step2: convert value>>>>", convert);
+    // const value = parseValue(target).toString();
 
-    // step3: format currency
-    const formatted = currency(convert);
-
-    console.log("Step3: format currency>>>>", formatted);
-    if (formatted !== value) {
-      //   setValue(formatted);
-      const p = parseValue(formatted);
-      onChange?.(p ?? null);
+    if (
+      typeof value === "number" ||
+      (typeof value === "string" && value.trim() !== "")
+    ) {
+      const formattedValue = currency(value);
+      if (formattedValue !== value) {
+        setValue(formattedValue);
+        onChange?.(value ? parseValue(value.toString()) : null);
+      }
     }
   };
 
@@ -81,7 +78,6 @@ export default function TestInput({
       onChange={handleChange}
       onBlur={handleBlur}
       className="w-full"
-      //   parser={value => Number(value) === 0 ? '' : parseValue(value)}
       parser={parseValue}
     />
   );

@@ -1,22 +1,7 @@
-import { FocusEventHandler, useEffect, useState } from "react";
+import { FocusEventHandler, useState } from "react";
 import { InputNumber, InputNumberProps } from "antd";
 
 type Props = InputNumberProps;
-
-const formatCurrency = (value?: number | string | null): string => {
-  if (
-    !value ||
-    isNaN(parseFloat(value.toString().replace(/\./g, "").replace(/,/, ".")))
-  ) {
-    return "";
-  }
-  const formatted = new Intl.NumberFormat("de-DE", {
-    style: "currency",
-    currency: "EUR",
-  }).format(parseFloat(value.toString().replace(/\./g, "").replace(/,/, ".")));
-
-  return formatted.replace(/\s?€/g, "").trim();
-};
 
 const currency = (value?: number | string | null): string => {
   if (
@@ -44,8 +29,8 @@ export default function TestInput({
     rest?.value ? currency(rest.value) : undefined,
   );
 
-  const parseValue = (value?: string): number => {
-    return value ? parseFloat(value.replace(/\./g, "").replace(/,/, ".")) : 0;
+  const parseValue = (str?: string): number => {
+    return str ? parseFloat(str.replace(/\./g, "").replace(/,/, ".")) : 0;
   };
 
   const handleBlur: FocusEventHandler<HTMLInputElement> = (event) => {
@@ -63,7 +48,7 @@ export default function TestInput({
 
     console.log("Step3: format currency>>>>", formatted);
     if (formatted !== value) {
-      //   setValue(formatted);
+      setValue(formatted);
       const p = parseValue(formatted);
       onChange?.(p ?? null);
     }
@@ -82,7 +67,7 @@ export default function TestInput({
       onBlur={handleBlur}
       className="w-full"
       //   parser={value => Number(value) === 0 ? '' : parseValue(value)}
-      parser={parseValue}
+      //   parser={parseValue}
     />
   );
 }

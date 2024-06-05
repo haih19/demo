@@ -1,12 +1,12 @@
-import { NumberInput } from "@/components/input";
 import { NoData } from "@/components/no-data";
-import TagsSelect from "@/components/render-tag";
+import NumberFormatter from "@/components/number";
+import TestInput from "@/components/test";
 import CurrentWeather from "@/components/weather/current";
 import { WeatherSkeleton } from "@/components/weather/skeleton";
 import Weekdays from "@/components/weather/weekdays";
 import { useGeoCoordinatesQuery } from "@/http/query/geo-coordinates";
 import { useWeatherQuery } from "@/http/query/weather";
-import { Form, Input } from "antd";
+import { Form, Input, InputNumber, Statistic } from "antd";
 import { useEffect, useState } from "react";
 
 const HomePage = () => {
@@ -47,7 +47,7 @@ const HomePage = () => {
   const [test, setTest] = useState<number | null>(null);
 
   useEffect(() => {
-    console.log(typeof test, ">>>>", test);
+    console.log("Step5: homeValue>>>>", test);
   }, [test]);
 
   return (
@@ -59,20 +59,22 @@ const HomePage = () => {
         layout="vertical"
         onFinish={onSubmit}>
         <Form.Item name="city">
-          <Input
+          <InputNumber
             size="large"
             placeholder="City"
-            value={city}
-            onChange={(e) => setCity(e.target.value)}
-            allowClear
+            value={test}
+            precision={2}
+            decimalSeparator=","
+            onChange={(e) => setTest(e ? Number(e) : null)}
           />
         </Form.Item>
       </Form>
 
-      <div>
-        <NumberInput
+      <div className="my-5">
+        <div>demo</div>
+        <TestInput
           value={test}
-          onChange={(e) => setTest(e)}
+          onChange={(e) => setTest(e ? parseFloat(`${e}`) : null)}
         />
       </div>
 
